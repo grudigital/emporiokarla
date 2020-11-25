@@ -69,15 +69,6 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "</div>";
                                         echo "</div>";
 
-                                        echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Subtitulo</label>";
-                                        echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='subtitulo' type='text' value='$row[subtitulo]'
-                                                   id='example-text-input'>";
-                                        echo "</div>";
-                                        echo "</div>";
-
-
                                     }
                                     mysqli_close($conn);
                                     ?>

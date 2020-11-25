@@ -26,28 +26,33 @@
             </div>
 
 
-            <form action="reservations.php" method="post" id="reservationform" class="contact-form">
+            <form action="functions/enviarsugestao.php" method="post" enctype="multipart/form-data" class="contact-form">
                 <div class="col-md-5 col-md-offset-1 jt_col column_container">
                     <p>Nome</p>
-                    <input type="text" id="date" name="date" placeholder="Nome" class="text date required" >
+                    <input type="text" name="nome" placeholder="Nome" class="text" >
                 </div>
+
+                <?php
+                require("admin/connections/conn.php");
+                $pegaid = (int)$_GET['id'];
+                echo "<input name='loja' type='hidden' value='$pegaid'>";
+                mysqli_close($conn);
+                ?>
+
+
 
                 <div class="col-md-5 jt_col column_container">
                     <p>Telefone</p>
-                    <input type="text" id="reservation_name" name="reservation_name" placeholder="Telefone" class="text reservation_name required" >
+                    <input type="text" name="telefone" placeholder="Telefone" class="text" >
                 </div>
 
                 <div class="col-md-10 col-md-offset-1 jt_col column_container">
-                    <textarea id="reservation_message" name="reservation_message" class="text area required" placeholder="Mensagem" rows="6"></textarea>
+                    <textarea name="mensagem" class="text" placeholder="Mensagem" rows="6"></textarea>
                 </div>
                 <div style="margin-bottom: 30px" class="col-md-4 col-md-offset-4 jt_col column_container">
                     <input type="submit" class="button center" value="Enviar sugestão" >
                 </div>
-
-
-
             </form>
-
         </div>
     </div>
 </section>

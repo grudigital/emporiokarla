@@ -58,13 +58,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                         </div>
                                     </div>
 
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Subtitulo</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="subtitulo" type="text" placeholder="Subtitulo"
-                                                   id="example-text-input">
-                                        </div>
-                                    </div>
+
 
                                     <input type="hidden" name="status" value="2">
 

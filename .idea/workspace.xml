@@ -2,8 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef92b0fb-ce91-45eb-ae49-dc45394bf000" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/uploads/banners/1606315267.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/banners/1606315295.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/banners/1606316507.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/banners/1606316516.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606317622.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606317664.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606317758.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606317801.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606317899.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606318090.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606318521.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606318558.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606318578.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606318600.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606318617.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/uploads/categorias/1606318632.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/caixa1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/caixa2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/caixa3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/caixa4.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cozinha1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cozinha2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cozinha3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cozinha4.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/adicionaritem.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/confirmarpagamento1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/confirmarpagamento2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/confirmarpagamento3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/confirmarpagamento4.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/entregarpedido1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/entregarpedido2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/entregarpedido3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/entregarpedido4.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/entregarpedidocozinha1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/entregarpedidocozinha2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/entregarpedidocozinha3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/entregarpedidocozinha4.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/enviarsugestao.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/loja1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/loja2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/processarpedido.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/retiraritem.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meus-pedidos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/banners_adicionar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/banners_adicionar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/banners_editar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/banners_editar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/functions/banners_adicionar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/functions/banners_adicionar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/functions/banners_editar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/functions/banners_editar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/elixir.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/elixir.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo_intro.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo_intro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/menu_title_line.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/menu_title_line.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sugestoes.php" beforeDir="false" afterPath="$PROJECT_DIR$/sugestoes.php" afterDir="false" />
@@ -51,6 +100,7 @@
       <workItem from="1606250540536" duration="558000" />
       <workItem from="1606262233630" duration="2924000" />
       <workItem from="1606273251715" duration="1734000" />
+      <workItem from="1606312247268" duration="23229000" />
     </task>
     <task id="LOCAL-00001" summary="@felipesergio projeto base">
       <created>1606262492188</created>
@@ -90,9 +140,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1606262583751" />
-    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1606264220599">
+    <state x="534" y="94" width="585" height="592" key="find.popup" timestamp="1606333223393">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1606264220599" />
+    <state x="534" y="94" width="585" height="592" key="find.popup/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1606333223393" />
   </component>
 </project>

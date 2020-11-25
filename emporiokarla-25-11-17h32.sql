@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Nov-2020 às 01:47
+-- Tempo de geração: 25-Nov-2020 às 21:31
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.7
 
@@ -31,16 +31,17 @@ CREATE TABLE `administradores` (
   `id` int(10) UNSIGNED NOT NULL,
   `nome` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
-  `senha` varchar(80) COLLATE utf8_unicode_ci NOT NULL
+  `senha` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `perfil` int(5) DEFAULT NULL COMMENT '1. administrador 2.caixa'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `administradores`
 --
 
-INSERT INTO `administradores` (`id`, `nome`, `email`, `senha`) VALUES
-(1, 'Felipe', 'felipe@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3'),
-(2, 'Netto', 'netto@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO `administradores` (`id`, `nome`, `email`, `senha`, `perfil`) VALUES
+(1, 'Felipe', 'felipe@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 1),
+(2, 'Netto', 'netto@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 1);
 
 -- --------------------------------------------------------
 
@@ -51,7 +52,6 @@ INSERT INTO `administradores` (`id`, `nome`, `email`, `senha`) VALUES
 CREATE TABLE `banners` (
   `id` int(10) UNSIGNED NOT NULL,
   `titulo` varchar(120) NOT NULL,
-  `subtitulo` varchar(120) NOT NULL,
   `imagem` varchar(120) NOT NULL,
   `status` int(5) NOT NULL COMMENT '1.publicado 2.nao publicado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -60,8 +60,9 @@ CREATE TABLE `banners` (
 -- Extraindo dados da tabela `banners`
 --
 
-INSERT INTO `banners` (`id`, `titulo`, `subtitulo`, `imagem`, `status`) VALUES
-(2, 'titulo 1', 'subtitulo 1', '', 1);
+INSERT INTO `banners` (`id`, `titulo`, `imagem`, `status`) VALUES
+(3, 'Os melhores lanches', '1606316507.jpg', 1),
+(4, 'Tortas saborosas', '1606316516.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -80,9 +81,12 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `categoria`, `imagem`) VALUES
-(1, 'Bebidas2', '1606257941.jpg'),
-(3, 'comidas ', NULL),
-(4, 'salgadinhos', NULL);
+(7, 'Lanches', '1606317622.jpg'),
+(8, 'Porções', '1606318521.jpg'),
+(9, 'Comidas típicas', '1606318578.jpg'),
+(10, 'Doces', '1606318600.jpg'),
+(11, 'Bebidas Alcólicas', '1606318617.jpg'),
+(12, 'Refrigerantes ', '1606318632.jpg');
 
 -- --------------------------------------------------------
 
@@ -129,7 +133,16 @@ CREATE TABLE `itens` (
 
 INSERT INTO `itens` (`id`, `titulo`, `categoria`, `descricao`, `preco`, `loja1`, `loja2`, `loja3`, `loja4`) VALUES
 (2, 'titulo24', 1, '22224', '19.924', 1, 2, NULL, NULL),
-(3, 'Refrigerante coca cola', 1, 'bebida refrescante', '19.00', 1, 2, 1, 1);
+(3, 'Refrigerante coca cola', 1, 'bebida refrescante', '19.00', 1, 2, 1, 1),
+(4, 'Misto Quente', 7, 'Pão frances, presunto e queijo mussarela', '13.90', 1, 1, 1, 1),
+(5, 'Bolo de Tapioca - 1Kg', 10, 'Bolo doce de tapioca com coco', '24.80', 1, 1, 1, NULL),
+(6, 'Porção de Camarão GG', 8, 'Camarão GG, batata rústica e salada verde', '39.90', 1, 1, NULL, NULL),
+(7, 'Tapioca com queijo', 9, 'Tapioca com queijo mussarela', '9.90', 1, 1, NULL, NULL),
+(8, 'Chop Sol', 11, 'Chop Sol 500 Ml', '13.90', 1, 1, NULL, NULL),
+(9, 'Coca cola zero ', 12, 'Refrigerante 350ml', '4.90', 1, 1, NULL, NULL),
+(10, 'Pernil na Baguete', 7, 'Pernil, baguete e vinagrete', '19.90', 1, 1, NULL, NULL),
+(11, 'Carne Seca com Macaxeira', 8, 'Carne seca com macaxeira', '34.80', 1, 1, NULL, NULL),
+(12, 'Carne seca no pão Frances', 7, 'Queijo qualho e vinagrete', '13.90', 1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -139,11 +152,38 @@ INSERT INTO `itens` (`id`, `titulo`, `categoria`, `descricao`, `preco`, `loja1`,
 
 CREATE TABLE `pedidos` (
   `id` int(10) UNSIGNED NOT NULL,
-  `pedido` int(10) NOT NULL,
-  `item` int(10) NOT NULL,
-  `valor` int(10) NOT NULL,
-  `datacadastro` datetime NOT NULL DEFAULT current_timestamp()
+  `pedido` int(10) DEFAULT NULL,
+  `loja` int(5) DEFAULT NULL,
+  `item` int(10) DEFAULT NULL,
+  `valor` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` int(10) NOT NULL COMMENT '1. em andamento, 2. aguardando pagamento, 3. preparando item, 4. entregue',
+  `datacadastro` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `pedido`, `loja`, `item`, `valor`, `status`, `datacadastro`) VALUES
+(58, 1690, 1, NULL, NULL, 4, '2020-11-25 16:36:45'),
+(59, 407, 1, NULL, NULL, 4, '2020-11-25 16:36:55'),
+(60, 407, 1, 10, '19.90', 4, '2020-11-25 16:37:06'),
+(61, 407, 1, 7, '9.90', 4, '2020-11-25 16:37:12'),
+(62, 1690, 1, 12, '13.90', 4, '2020-11-25 16:40:36'),
+(63, 1690, 1, 5, '24.80', 4, '2020-11-25 16:45:01'),
+(64, 1690, 1, 9, '4.90', 4, '2020-11-25 16:45:06'),
+(65, 407, 1, 10, '19.90', 4, '2020-11-25 16:45:08'),
+(66, 407, 1, 6, '39.90', 4, '2020-11-25 16:45:13'),
+(67, 3731, 1, NULL, NULL, 3, '2020-11-25 17:08:05'),
+(68, 3731, 1, 11, '34.80', 3, '2020-11-25 17:08:14'),
+(69, 9938, 2, NULL, NULL, 4, '2020-11-25 17:14:32'),
+(70, 9938, 2, 6, '39.90', 4, '2020-11-25 17:17:12'),
+(71, 9938, 2, 10, '19.90', 4, '2020-11-25 17:17:17'),
+(72, 9938, 2, 8, '13.90', 4, '2020-11-25 17:17:26'),
+(73, 8314, 2, NULL, NULL, 0, '2020-11-25 17:19:15'),
+(74, 3247, 2, NULL, NULL, 0, '2020-11-25 17:27:26'),
+(75, 3247, 2, 4, '13.90', 0, '2020-11-25 17:27:53'),
+(76, 3247, 2, 5, '24.80', 0, '2020-11-25 17:28:21');
 
 -- --------------------------------------------------------
 
@@ -227,13 +267,13 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de tabela `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `informacoes`
@@ -245,13 +285,13 @@ ALTER TABLE `informacoes`
 -- AUTO_INCREMENT de tabela `itens`
 --
 ALTER TABLE `itens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de tabela `sugestoes`

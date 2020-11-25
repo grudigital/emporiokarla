@@ -12,8 +12,20 @@
         <!-- BEGIN NAVIGATION MENU-->
         <nav class="collapse navbar-collapse navbar-right navbar-main-collapse" role="navigation">
             <ul class="nav navbar-nav navigation">
-                <li class="page-scroll menu-item"><a href="index.php">Cardápio</a></li>
-                <li class="page-scroll menu-item"><a href="sugestoes.php">Sugestões</a></li>
+
+                <?php
+                require("admin/connections/conn.php");
+                $pegaid = (int)$_GET['id'];
+                $sql = "select * from pedidos where pedido = '$pegaid' group by pedido";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<li class='page-scroll menu-item'><a href='index.php?id=$row[pedido]'>Cardápio</a></li>";
+                    echo "<li class='page-scroll menu-item'><a href='sugestoes.php?id=$row[pedido]'>Sugestões</a></li>";
+                    echo "<li class='page-scroll menu-item'><a href='meus-pedidos.php?id=$row[pedido]'>Meus pedidos</a></li>";
+                }
+                mysqli_close($conn);
+                ?>
+
             </ul>
         </nav>
     </div>
