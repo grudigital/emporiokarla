@@ -27,7 +27,7 @@ if ($_SESSION['usuarioNome'] == '') {
                             </button>
                         </li>
                         <li class="hide-phone list-inline-item app-search">
-                            <h3 class="page-title">Management panel</h3>
+                            <h3 class="page-title">Painel de controle</h3>
                         </li>
                     </ul>
 
@@ -45,90 +45,53 @@ if ($_SESSION['usuarioNome'] == '') {
 
                 <div class="container-fluid">
 
-                    <!--<div style="background-color: #000; height: 200px; width: 100%">-->
                     <div class="row">
-                        <div class="col-md-6 col-xl-3">
+                        <div class="col-md-6 col-xl-6">
                             <div class="mini-stat clearfix bg-white">
-                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i
-                                            class="mdi mdi-account-check"></i></span>
+                                <span style="background-color: #7C4300 !important" class="mini-stat-icon bg-blue-grey mr-0 float-right"><i
+                                            class="mdi mdi-package-variant-closed"></i></span>
+
 
                                 <?php
                                 require("connections/conn.php");
-                                $sqlanunciantes = "SELECT * FROM anunciantes";
+                                $sqlanunciantes = "SELECT * FROM itens";
                                 $executa_query_anunciantes = mysqli_query($conn, $sqlanunciantes);
                                 $conta_linhas_anunciantes = mysqli_num_rows($executa_query_anunciantes);
 
                                 echo "<div class='mini-stat-info'>";
                                 echo "<span class='counter text-blue-grey'>$conta_linhas_anunciantes</span>";
-                                echo "Anunciantes cadastrados no site";
+                                echo "Produtos cadastrados no site";
                                 echo "</div>";
                                 ?>
 
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-xl-3">
+                        <div class="col-md-6 col-xl-6">
                             <div class="mini-stat clearfix bg-white">
-                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i
-                                            class="mdi mdi-package-variant-closed"></i></span>
+                                <span style="background-color: #7C4300 !important" class="mini-stat-icon bg-blue-grey mr-0 float-right"><i
+                                            class="mdi mdi-account-check"></i></span>
                                 <?php
                                 require("connections/conn.php");
-                                $sqlprodutos = "SELECT * FROM produtos";
+                                $sqlprodutos = "SELECT * FROM sugestoes";
                                 $executa_query_produtos = mysqli_query($conn, $sqlprodutos);
                                 $conta_linhas_produtos = mysqli_num_rows($executa_query_produtos);
 
                                 echo "<div class='mini-stat-info'>";
                                 echo "<span class='counter text-blue-grey'>$conta_linhas_produtos</span>";
-                                echo "Produtos cadastrados no site";
+                                echo "Sugestões enviadas pelo site";
                                 echo "</div>";
                                 ?>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="mini-stat clearfix bg-white">
-                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i
-                                            class="mdi mdi-comment"></i></span>
-                                <?php
-                                require("connections/conn.php");
-                                $sqlcomentarios = "SELECT * FROM anunciantes_comentarios";
-                                $executa_query_comentarios = mysqli_query($conn, $sqlcomentarios);
-                                $conta_linhas_comentarios = mysqli_num_rows($executa_query_comentarios);
-
-                                echo "<div class='mini-stat-info'>";
-                                echo "<span class='counter text-blue-grey'>$conta_linhas_comentarios</span>";
-                                echo "Comentários em anúncios";
-                                echo "</div>";
-                                ?>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="mini-stat clearfix bg-white">
-                                <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i
-                                            class="mdi mdi-contact-mail"></i></span>
-                                <?php
-                                require("connections/conn.php");
-                                $sqlorcamentos = "SELECT * FROM anunciantes_orcamento";
-                                $executa_query_orcamentos = mysqli_query($conn, $sqlorcamentos);
-                                $conta_linhas_orcamentos = mysqli_num_rows($executa_query_orcamentos);
-
-                                echo "<div class='mini-stat-info'>";
-                                echo "<span class='counter text-blue-grey'>$conta_linhas_orcamentos</span>";
-                                echo "Orçamentos em anúncios";
-                                echo "</div>";
-                                ?>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
 
 
-                    <div class="row">
-                        <div class="col-xl-6">
+
+                        <div class="col-md-6 col-xl-6">
                             <div class="card m-b-20">
                                 <div class="card-body">
-                                    <h4 class="mt-0 m-b-30 header-title">Últimos anunciantes ativos</h4>
+                                    <h4 class="mt-0 m-b-30 header-title">Últimos produtos</h4>
 
                                     <div class="table-responsive">
                                         <table class="table table-vertical mb-0">
@@ -137,15 +100,15 @@ if ($_SESSION['usuarioNome'] == '') {
 
                                             <?php
                                             require("connections/conn.php");
-                                            $sql = "select a.id aid, a.titulo atitulo, a.categoria acategoria, a.datacadastro adatacadastro, ac.id acid, ac.categoria accategoria from anunciantes as a inner join anunciantes_categoria as ac on a.categoria = ac.id where a.status = 1 order by a.id desc limit 7";
+                                            $sql = "select i.id iid, i.titulo ititulo, i.categoria icategoria, i.preco ipreco, c.id cid, c.categoria ccategoria from itens as i inner join categorias as c on c.id = i.categoria order by i.id desc limit 5 ";
                                             $result = mysqli_query($conn, $sql);
                                             while ($row = mysqli_fetch_assoc($result)) {
 
 
                                                 echo "<tr>";
-                                                echo "<td>$row[atitulo]</td>";
-                                                echo "<td>$row[accategoria]</td>";
-                                                echo "<td>$row[adatacadastro]</td>";
+                                                echo "<td>$row[ititulo]</td>";
+                                                echo "<td>$row[ccategoria]</td>";
+                                                echo "<td>R$ $row[ipreco]</td>";
                                                 echo "</tr>";
                                             }
                                             ?>
@@ -157,10 +120,10 @@ if ($_SESSION['usuarioNome'] == '') {
                             </div>
                         </div>
 
-                        <div class="col-xl-6">
+                        <div class="col-md-6 col-xl-6">
                             <div class="card m-b-20">
                                 <div class="card-body">
-                                    <h4 class="mt-0 m-b-30 header-title">últimos contatos</h4>
+                                    <h4 class="mt-0 m-b-30 header-title">Últimas sugestões</h4>
 
                                     <div class="table-responsive">
                                         <table class="table table-vertical mb-0">
@@ -170,7 +133,7 @@ if ($_SESSION['usuarioNome'] == '') {
 
                                             <?php
                                             require("connections/conn.php");
-                                            $sql = "select * from contatos order by id desc limit 10";
+                                            $sql = "select * from sugestoes order by id desc limit 10";
                                             $result = mysqli_query($conn, $sql);
                                             while ($row = mysqli_fetch_assoc($result)) {
 
@@ -178,7 +141,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                                 echo "<tr>";
                                                 echo "<td>$row[nome]</td>";
                                                 echo "<td>$row[telefone]</td>";
-                                                echo "<td>$row[datacontato]</td>";
+                                                echo "<td>$row[dataenvio]</td>";
                                                 echo "</tr>";
                                             }
                                             ?>

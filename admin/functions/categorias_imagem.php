@@ -2,7 +2,7 @@
 $id = intval($_REQUEST['id']);
 include_once("../connections/conn.php");
 $arquivo = $_FILES['arquivo']['name'];
-$_UP['pasta'] = '../uploads/estabelecimentos/';
+$_UP['pasta'] = '../uploads/categorias/';
 $_UP['tamanho'] = 1024 * 1024 * 100; //5mb
 $_UP['extensoes'] = array('png', 'jpg', 'jpeg', 'gif');
 $_UP['renomeia'] = true;
@@ -17,7 +17,7 @@ if ($_FILES['arquivo']['error'] != 0) {
     exit;
 } else if ($_UP['tamanho'] < $_FILES['arquivo']['size']) {
     echo "
-					<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=..estabelecimentos.php'>
+					<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=..categorias.php'>
 					<script type=\"text/javascript\">
 						alert(\"Arquivo muito grande.\");
 					</script>
@@ -29,16 +29,16 @@ if ($_FILES['arquivo']['error'] != 0) {
         $nome_final = $_FILES['arquivo']['name'];
     }
     if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final)) {
-        $query = mysqli_query($conn, "update estabelecimentos set imagem = '$nome_final' WHERE id = $id");
+        $query = mysqli_query($conn, "update categorias set imagem = '$nome_final' WHERE id = $id");
         echo "
-						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../estabelecimentos.php'>
+						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../categorias.php'>
 						<script type=\"text/javascript\">
 							alert(\"Imagem salva com Sucesso.\");
 						</script>
 					";
     } else {
         echo "
-						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../estabelecimentos.php'>
+						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../categorias.php'>
 						<script type=\"text/javascript\">
 							alert(\"Imagem não foi cadastrada com Sucesso.\");
 						</script>

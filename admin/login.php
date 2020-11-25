@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Guiadas para o sucesso - Painel de gerenciamento </title>
+        <title>Empório Karla - Painel de gerenciamento </title>
         <meta content="Agencia Grudigital" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="icon" href="assets/images/favicon.png">
@@ -19,7 +19,7 @@
             <div class="card">
                 <div style="background-color: #fff; padding:50px; border-radius: 10px" class="card-body">
                     <h3 class="text-center m-0">
-                        <a href="index.php" class="logo logo-admin"><img src="assets/images/logo.png" height="80" alt="logo"></a>
+                        <a href="index.php" class="logo logo-admin"><img src="assets/images/logo.png" alt="logo"></a>
                     </h3>
                     <div class="p-3">
                         <h4 class="font-18 m-b-5 text-center">Painel de gerenciamento</h4>
@@ -36,7 +36,7 @@
                             <div class="form-group row m-t-20">
 
                                 <div class="col-sm-12 text-right">
-                                    <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Entrar</button>
+                                    <button style="background-color: #7C4300; color: #fff; border: none" class="btn w-md waves-effect waves-light" type="submit">Entrar</button>
                                 </div>
                             </div>
                         </form>
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="m-t-40 text-center" style="font-size:15px">
-                <p class="text-white">© 2020 Guiadas para o sucesso. Desenvolvido com <i class="mdi mdi-heart text-danger"></i> por Grudigital</p>
+                <p class="text-white" style="font-size: 15px !important">© 2020 Empório Karla - <span class="text-muted d-none d-sm-inline-block float-right" style="color: #fff !important">Desenvolvido com <i class="mdi mdi-heart text-danger"></i> por Grudigital</span></p>
             </div>
         </div>
         <script src="assets/js/jquery.min.js"></script>

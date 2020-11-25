@@ -25,7 +25,7 @@ if ($_SESSION['usuarioNome'] == '') {
                             </button>
                         </li>
                         <li class="hide-phone list-inline-item app-search">
-                            <h3 class="page-title">Painel de gerenciamento :: Planos :: Editar imagem</h3>
+                            <h3 class="page-title">Painel de gerenciamento :: Banners :: Editar imagem</h3>
                         </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -36,14 +36,14 @@ if ($_SESSION['usuarioNome'] == '') {
                     <div class="row">
                         <div class="col-12">
                             <div class="card m-b-20">
-                                <form class="card-body" action="functions/planos_imagem.php"
+                                <form class="card-body" action="functions/banners_imagem.php"
                                       enctype="multipart/form-data"
                                       method="post">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4">
-                                                <h4 class="mt-0 header-title">Planos</h4>
-                                                <p class="text-muted m-b-30 font-14">Editar imagem de plano</p>
+                                                <h4 class="mt-0 header-title">Banners</h4>
+                                                <p class="text-muted m-b-30 font-14">Editar imagem de banner</p>
                                             </div>
                                             <div class="col-6"></div>
                                             <div class="col-2">
@@ -58,7 +58,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                         require ("connections/conn.php");
 
                                         $pegaid = (int) $_GET['id'];
-                                        $sql = "select * FROM planos where id = '$pegaid'";
+                                        $sql = "select * FROM banners where id = '$pegaid'";
                                         $result = mysqli_query($conn, $sql);
 
                                         while($row = mysqli_fetch_assoc($result)) {
@@ -69,7 +69,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                             }
                                             else
                                             {
-                                                echo "<img src='uploads/planos/$row[imagem]' class='img-fluid'>";
+                                                echo "<img src='uploads/banners/$row[imagem]' class='img-fluid'>";
                                                 echo "<input type='hidden' name='id' value='$row[id]'>";
                                                 echo "<br/><br/>";
                                             }
@@ -95,8 +95,8 @@ if ($_SESSION['usuarioNome'] == '') {
                                 </form>
                             </div>
                         </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>

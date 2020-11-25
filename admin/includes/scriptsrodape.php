@@ -29,3 +29,7 @@
 <script src="assets/js/app.js"></script>
 
 <script src="../plugins/dropzone/dist/dropzone.js"></script>
+
+<!--Mascara de preço-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>

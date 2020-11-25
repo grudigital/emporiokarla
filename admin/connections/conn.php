@@ -1,14 +1,9 @@
 <?php
 
 $servidor = "localhost";
-$usuario = "u319275366_grudigital";
-$senha = "2423*Wxci290989";
-$dbname = "u319275366_sistema2020";
-
-//$servidor = "localhost";
-//$usuario = "root";
-//$senha = "";
-//$dbname = "guiadasparaosucesso";
+$usuario = "root";
+$senha = "";
+$dbname = "emporiokarla";
 
 $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 

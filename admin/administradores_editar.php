@@ -25,7 +25,7 @@ if ($_SESSION['usuarioNome'] == '') {
                             </button>
                         </li>
                         <li class="hide-phone list-inline-item app-search">
-                            <h3 class="page-title">Painel de gerenciamento :: Usuários :: Editar</h3>
+                            <h3 class="page-title">Painel de gerenciamento :: Administradores :: Editar</h3>
                         </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -36,14 +36,14 @@ if ($_SESSION['usuarioNome'] == '') {
                     <div class="row">
                         <div class="col-12">
                             <div class="card m-b-20">
-                                <form class="card-body" action="functions/usuarios_editar.php"
+                                <form class="card-body" action="functions/administradores_editar.php"
                                       enctype="multipart/form-data"
                                       method="post">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4">
-                                                <h4 class="mt-0 header-title">Usuários</h4>
-                                                <p class="text-muted m-b-30 font-14">Editar usuários</p>
+                                                <h4 class="mt-0 header-title">Administradores</h4>
+                                                <p class="text-muted m-b-30 font-14">Editar administrador</p>
                                             </div>
                                             <div class="col-6"></div>
                                             <div class="col-2">
@@ -56,7 +56,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     require("connections/conn.php");
 
                                     $pegaid = (int)$_GET['id'];
-                                    $sql = "select id,nome,email FROM usuarios where id = '$pegaid'";
+                                    $sql = "select id,nome,email FROM administradores where id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
 
                                     while ($row = mysqli_fetch_assoc($result)) {
@@ -77,7 +77,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
-                                        }
+                                    }
                                     mysqli_close($conn);
                                     ?>
 

@@ -25,7 +25,7 @@ if ($_SESSION['usuarioNome'] == '') {
                             </button>
                         </li>
                         <li class="hide-phone list-inline-item app-search">
-                            <h3 class="page-title">Painel de gerenciamento :: Usuários :: Adicionar</h3>
+                            <h3 class="page-title">Painel de gerenciamento :: Categorias :: Editar</h3>
                         </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -36,13 +36,14 @@ if ($_SESSION['usuarioNome'] == '') {
                     <div class="row">
                         <div class="col-12">
                             <div class="card m-b-20">
-                                <form class="card-body" action="functions/usuarios_adicionar.php" enctype="multipart/form-data"
+                                <form class="card-body" action="functions/categorias_editar.php"
+                                      enctype="multipart/form-data"
                                       method="post">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4">
-                                                <h4 class="mt-0 header-title">Usuários</h4>
-                                                <p class="text-muted m-b-30 font-14">Adicionar usuário</p>
+                                                <h4 class="mt-0 header-title">Categorias</h4>
+                                                <p class="text-muted m-b-30 font-14">Editar categoria</p>
                                             </div>
                                             <div class="col-6"></div>
                                             <div class="col-2">
@@ -50,32 +51,32 @@ if ($_SESSION['usuarioNome'] == '') {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Nome</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="nome" type="text" placeholder="Nome"
-                                                   id="example-text-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">E-mail</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="email" type="text" placeholder="E-mail"
-                                                   id="example-text-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Senha</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="senha" type="text" placeholder="Senha"
-                                                   id="example-text-input">
-                                        </div>
-                                    </div>
+
+                                    <?php
+                                    require("connections/conn.php");
+                                    $pegaid = (int)$_GET['id'];
+                                    $sql = "select * FROM categorias where id = '$pegaid'";
+                                    $result = mysqli_query($conn, $sql);
+
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<input class='form-control' name='id' type='hidden' value='$row[id]'
+                                                   id='example-text-input'>";
+
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Categoria</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<input class='form-control' name='categoria' type='text' value='$row[categoria]'
+                                                   id='example-text-input'>";
+                                        echo "</div>";
+                                        echo "</div>";
 
 
+                                    }
+                                    mysqli_close($conn);
+                                    ?>
                                     <div class="form-group row">
                                         <div class="col-sm-12">
-                                            <button style="float: right" type='submit' class='btn btn-info'>Gravar usuário
+                                            <button style="float: right" type='submit' class='btn btn-info'>Atualizar
                                             </button>
                                         </div>
                                     </div>

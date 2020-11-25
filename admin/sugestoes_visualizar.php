@@ -25,7 +25,7 @@ if ($_SESSION['usuarioNome'] == '') {
                             </button>
                         </li>
                         <li class="hide-phone list-inline-item app-search">
-                            <h3 class="page-title">Painel de gerenciamento :: Informações</h3>
+                            <h3 class="page-title">Painel de gerenciamento :: Sugestões :: Visualizar</h3>
                         </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -36,14 +36,14 @@ if ($_SESSION['usuarioNome'] == '') {
                     <div class="row">
                         <div class="col-12">
                             <div class="card m-b-20">
-                                <form class="card-body" action="functions/informacoes.php"
+                                <form class="card-body" action="#"
                                       enctype="multipart/form-data"
                                       method="post">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4">
-                                                <h4 class="mt-0 header-title">Informações</h4>
-                                                <p class="text-muted m-b-30 font-14">Editar Informações</p>
+                                                <h4 class="mt-0 header-title">Sugestões</h4>
+                                                <p class="text-muted m-b-30 font-14">Visualizar sugestões</p>
                                             </div>
                                             <div class="col-6"></div>
                                             <div class="col-2">
@@ -54,58 +54,51 @@ if ($_SESSION['usuarioNome'] == '') {
 
                                     <?php
                                     require("connections/conn.php");
-                                    $sql = "select id,facebook,instagram,funcsegsab,funcdom FROM informacoes where id = 1";
+                                    $pegaid = (int)$_GET['id'];
+                                    $sql = "select * FROM sugestoes where id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
-
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<input class='form-control' name='id' type='hidden' value='$row[id]'
                                                    id='example-text-input'>";
 
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Facebook</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Nome</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='facebook' type='text' value='$row[facebook]'
-                                                   id='example-text-input'>";
+                                        echo "<p style='margin-top: 5px'>$row[nome]</p>";
                                         echo "</div>";
                                         echo "</div>";
 
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Instagram</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Telefone</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='instagram' type='text' value='$row[instagram]'
-                                                   id='example-text-input'>";
+                                        echo "<p style='margin-top: 5px'>$row[telefone]</p>";
                                         echo "</div>";
                                         echo "</div>";
 
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Func. Seg. a Sáb.</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>E-mail</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='funcsegsab' type='text' value='$row[funcsegsab]'
-                                                   id='example-text-input'>";
+                                        echo "<p style='margin-top: 5px'>$row[email]</p>";
                                         echo "</div>";
                                         echo "</div>";
 
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Func. Dom.</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Mensagem</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='funcdom' type='text' value='$row[funcdom]'
-                                                   id='example-text-input'>";
+                                        echo "<p style='margin-top: 5px'>$row[mensagem]</p>";
                                         echo "</div>";
                                         echo "</div>";
 
-
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Data de contato</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<p style='margin-top: 5px'>$row[dataenvio]</p>";
+                                        echo "</div>";
+                                        echo "</div>";
 
                                     }
                                     mysqli_close($conn);
                                     ?>
-
-
-                                    <div class="form-group row">
-                                        <div class="col-sm-12">
-                                            <button style="float: right" type='submit' class='btn btn-info'>Atualizar informações</button>
-                                        </div>
-                                    </div>
-
 
                                 </form>
                             </div>

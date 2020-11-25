@@ -2,11 +2,11 @@
 $id = intval($_REQUEST['id']);
 
 require("../connections/conn.php");
-$sql = "update imoveis set status='1' where id=$id";
+$sql = "update itens set loja1='2' where id=$id";
 if (!mysqli_query($conn,$sql))
 {
     die('Error: ' . mysqli_error($conn));
 }
-echo "<meta http-equiv='refresh' content=0;url='../imoveis.php'>";
+echo "<meta http-equiv='refresh' content=0;url='../produtos.php'>";
 mysqli_close($conn);
 ?>
