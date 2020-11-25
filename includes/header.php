@@ -11,7 +11,7 @@
 
         <!-- BEGIN NAVIGATION MENU-->
         <nav class="collapse navbar-collapse navbar-right navbar-main-collapse" role="navigation">
-            <ul id="nav" class="nav navbar-nav navigation">
+            <ul class="nav navbar-nav navigation">
                 <li class="page-scroll menu-item"><a href="index.php">Cardápio</a></li>
                 <li class="page-scroll menu-item"><a href="sugestoes.php">Sugestões</a></li>
             </ul>

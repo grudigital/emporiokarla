@@ -3,7 +3,11 @@
 <?php include 'includes/head.php'; ?>
 
 <body>
-
+<div id="mask">
+    <div class="loader">
+        <img src="svg-loaders/tail-spin.svg" alt='loading'>
+    </div>
+</div>
 
 
 <?php include 'includes/header.php'; ?>

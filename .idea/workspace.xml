@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef92b0fb-ce91-45eb-ae49-dc45394bf000" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/head.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sugestoes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/elixir.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/elixir.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/logo-dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo-dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/logo_elixir.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo_elixir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/logo_intro.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo_intro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/logo_intro_small.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo_intro_small.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/menu_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/menu_logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sugestoes.php" beforeDir="false" afterPath="$PROJECT_DIR$/sugestoes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +32,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -51,6 +50,7 @@
       <updated>1606250539166</updated>
       <workItem from="1606250540536" duration="558000" />
       <workItem from="1606262233630" duration="2924000" />
+      <workItem from="1606273251715" duration="1734000" />
     </task>
     <task id="LOCAL-00001" summary="@felipesergio projeto base">
       <created>1606262492188</created>

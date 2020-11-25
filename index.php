@@ -9,6 +9,8 @@
             </div>
     </div>
     <?php include 'includes/header.php'; ?>
+
+
         <section id="home-slider">
             <div class="overlay"></div>
             <!-- SLIDER IMAGES -->
@@ -37,7 +39,6 @@
                 
             </div>
             <!-- BOTTOM ANIMATED ARROW -->
-            <a href="#about" class="page-scroll menu-item"><div class="mouse"><span></span></div></a>
         </section>
         <!-- END HOME SLIDER SECTION -->
 
