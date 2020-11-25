@@ -48,7 +48,7 @@
 
             echo "<div class='col-md-12 jt_col column_container'>";
             echo "<div class='voffset100'></div>";
-            echo "<div style='margin-bottom: 40px' class='title first'>Pedidos aguardando pagamento</div>";
+            echo "<div style='margin-bottom: 40px' class='title first'>Aguardando pagamento</div>";
             echo "<div class='voffset10'></div>";
             echo "</div>";
             echo "<div class='col-md-4'></div>";
