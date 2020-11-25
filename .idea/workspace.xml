@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef92b0fb-ce91-45eb-ae49-dc45394bf000" name="Default Changelist" comment="" />
+    <list default="true" id="ef92b0fb-ce91-45eb-ae49-dc45394bf000" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/emporiokarla.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emporiokarla.sql" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,11 +17,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1kkhXkK9KgnG8gvt7Fajw1t3Cfg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -33,10 +40,24 @@
       <option name="presentableId" value="Default" />
       <updated>1606250539166</updated>
       <workItem from="1606250540536" duration="558000" />
+      <workItem from="1606262233630" duration="328000" />
     </task>
+    <task id="LOCAL-00001" summary="@felipesergio projeto base">
+      <created>1606262492188</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606262492188</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="@felipesergio projeto base" />
+    <option name="LAST_COMMIT_MESSAGE" value="@felipesergio projeto base" />
   </component>
 </project>
