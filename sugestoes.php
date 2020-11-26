@@ -9,22 +9,20 @@
     </div>
 </div>
 
-
 <?php include 'includes/header.php'; ?>
 
 <section id="reservations" class="section reservations">
     <div class="container">
         <div class="jt_row jt_row-fluid row">
-            <div class="col-md-12 jt_col column_container">
-                <div class="voffset100"></div>
-                <h2 class="section-title">Sugestões</h2>
+            <div class='col-md-12 jt_col column_container'>
+                <div class='voffset100'></div>
+                <h2 class='section-title'>Sugestões</h2>
             </div>
-            <div class="col-md-6 col-md-offset-3 jt_col column_container">
-                <div class="section-subtitle">
+            <div class='col-md-6 col-md-offset-3 jt_col column_container'>
+                <div class='section-subtitle'>
                 Preencha os campos abaixo para fazer uma sugestão
                 </div>
             </div>
-
 
             <form action="functions/enviarsugestao.php" method="post" enctype="multipart/form-data" class="contact-form">
                 <div class="col-md-5 col-md-offset-1 jt_col column_container">
@@ -35,11 +33,13 @@
                 <?php
                 require("admin/connections/conn.php");
                 $pegaid = (int)$_GET['id'];
-                echo "<input name='loja' type='hidden' value='$pegaid'>";
+                $sqlpegaloja = "select * from pedidos where pedido = $pegaid group by pedido";
+                $resultpegaloja = mysqli_query($conn, $sqlpegaloja);
+                while ($rowpegaloja = mysqli_fetch_assoc($resultpegaloja)) {
+                    echo "<input name='loja' type='hidden' value='$rowpegaloja[loja]'>";
+                }
                 mysqli_close($conn);
                 ?>
-
-
 
                 <div class="col-md-5 jt_col column_container">
                     <p>Telefone</p>
@@ -56,18 +56,6 @@
         </div>
     </div>
 </section>
-<!-- END RESERVATIONS SECTION-->
-
-
-
-
-
-
-
-
-
-
 <?php include 'includes/footer.php'; ?>
-
 </body>
 </html>
