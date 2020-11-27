@@ -70,17 +70,18 @@
                 while ($rowitenspedidosoma = mysqli_fetch_assoc($resultitenspedidosoma)) {
 
                     echo "<li style='text-align: center'>Pedido $row[pedido]";
+                    echo "<br/></li>";
                 }
 
 
-                $sqlitenspedido = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = $row[pedido]";
+                $sqlitenspedido = "select p.id pid, p.pedido ppedido, p.loja ploja, p.quantidade pquantidade, p.item pitem, p.valor pvalor, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = $row[pedido]";
                 $resultitenspedido = mysqli_query($conn, $sqlitenspedido);
 
 
                 while ($rowitenspedido = mysqli_fetch_assoc($resultitenspedido)) {
 
-                    echo "<div class='detail'>$rowitenspedido[ititulo] ";
-                    echo "</div>";
+                    echo "<div class='detail'>$rowitenspedido[ititulo] - $rowitenspedido[pquantidade] unid (s) ";
+                    echo "<br/><br/></div>";
 
                 }
 

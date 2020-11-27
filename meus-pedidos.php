@@ -21,52 +21,76 @@
             <?php
             require("admin/connections/conn.php");
             $pegaid = (int)$_GET['id'];
-            $sql = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, p.status pstatus, i.id iid, i.titulo ititulo, i.descricao idescricao from pedidos as p inner join itens as i on i.id = p.item where p.pedido = '$pegaid'";
+            $sql = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, p.quantidade pquantidade, (p.valor * p.quantidade) as valortotalquantidade, p.status pstatus, i.id iid, i.titulo ititulo, i.descricao idescricao from pedidos as p inner join itens as i on i.id = p.item where p.pedido = '$pegaid'";
             $result = mysqli_query($conn, $sql);
 
             $sqlpegapedido = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, p.status pstatus, i.id iid, i.titulo ititulo, i.descricao idescricao from pedidos as p inner join itens as i on i.id = p.item where p.pedido = '$pegaid' order by p.id desc limit 1";
             $resultpegapedido = mysqli_query($conn, $sqlpegapedido);
 
-            $sqlitenspedidosoma = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, sum(p.valor) as valortotalpedido, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = '$pegaid' group by p.pedido";
+            $sqlitenspedidosoma = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, p.quantidade pquantidade, sum(p.valor * p.quantidade) as valortotalpedido, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = '$pegaid' group by p.pedido";
             $resultitenspedidosoma = mysqli_query($conn, $sqlitenspedidosoma);
 
 
-
-
-                echo "<div class='col-md-12 jt_col column_container'>";
-                echo "<div class='voffset100'></div>";
+            echo "<div class='col-md-12 jt_col column_container'>";
+            echo "<div class='voffset100'></div>";
             while ($rowpegapedido = mysqli_fetch_assoc($resultpegapedido)) {
                 echo "<div style='margin-bottom: 40px' class='title first'>Meus itens </div>";
                 echo "<div style='margin-top: -20px; margin-bottom: 50px; font-size: 15px; font-weight: bold; text-align: center'>Pedido: $rowpegapedido[ppedido]";
                 while ($rowitenspedidosoma = mysqli_fetch_assoc($resultitenspedidosoma)) {
-
-                    echo " - Total:  R$ $rowitenspedidosoma[valortotalpedido]";
+                    $numerocasas = $rowitenspedidosoma['valortotalpedido'];
+                    $numerocasasdecimais = number_format($numerocasas, 2, '.', '');
+                    echo " - Total:  R$ $numerocasasdecimais";
                 }
 
- echo "</div>";
-            }
-                echo "<div class='voffset10'></div>";
                 echo "</div>";
-                echo "<div class='col-md-3'></div>";
-                echo "<div class='col-md-6 jt_col column_container'>";
-                echo "<div class='voffset10'></div>";
-                echo "<ul class='menu'>";
+            }
+            echo "<div class='voffset10'></div>";
+            echo "</div>";
+            echo "<div class='col-md-3'></div>";
+            echo "<div class='col-md-6 jt_col column_container'>";
+            echo "<div class='voffset10'></div>";
+            echo "<ul class='menu'>";
 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<form method='post' action='functions/retiraritem.php'>";
                 echo "<input type='hidden' name='itempedido' value='$row[pid]'>";
                 echo "<input type='hidden' name='pedido' value='$row[ppedido]'>";
-                if($row['pstatus'] == 1 or $row['pstatus'] == 0 or $row['pstatus'] == null){
-                    echo "<li>$row[ititulo]<div class='detail'>$row[idescricao]<span class='price'>R$ $row[pvalor]</span></div><button style='font-size: 14px; height: 25px; margin-bottom: 30px; margin-top: 20px; width: 100px; border: none; color:#fff; background-color: #9b111e'>Retirar</button></li>";
-                }
-                else if($row['pstatus'] == 2){
-                    echo "<li>$row[ititulo]<div class='detail'>$row[idescricao]<span class='price'>R$ $row[pvalor]</span></div></li>";
-                }
-                else if($row['pstatus'] == 3){
-                    echo "<li>$row[ititulo]<div class='detail'>$row[idescricao]<span class='price'>R$ $row[pvalor]</span></div></li>";
-                }
-                else if($row['pstatus'] == 4){
-                    echo "<li>$row[ititulo]<div class='detail'>$row[idescricao]<span class='price'>R$ $row[pvalor]</span></div></li>";
+                if ($row['pstatus'] == 1 or $row['pstatus'] == 0 or $row['pstatus'] == null) {
+                    if($row['pquantidade'] <= 1){
+                        echo "<li>$row[ititulo] - $row[pquantidade] item<div style='margin-top: 10px' class='detail'>$row[idescricao]<span class='price'>R$ $row[valortotalquantidade]</span></div><button style='font-size: 14px; height: 25px; margin-bottom: 30px; margin-top: 20px; width: 100px; border: none; color:#fff; background-color: #9b111e'>Retirar</button></li>";
+                    }
+                    else{
+                        $numerocasas2 = $row['valortotalquantidade'];
+                        $numerocasasdecimais2 = number_format($numerocasas2, 2, '.', '');
+                        echo "<li>$row[ititulo] - $row[pquantidade] itens<div style='margin-top: 10px' class='detail'>$row[idescricao]<span class='price'>R$ $numerocasasdecimais2 ( R$ $row[pvalor] unid.)</span></div><button style='font-size: 14px; height: 25px; margin-bottom: 30px; margin-top: 20px; width: 100px; border: none; color:#fff; background-color: #9b111e'>Retirar</button></li>";
+                    }
+                } else if ($row['pstatus'] == 2) {
+                    if($row['pquantidade'] <= 1){
+                        echo "<li>$row[ititulo] - $row[pquantidade] item<div style='margin-top: 10px' class='detail'>$row[idescricao]<span class='price'>R$ $row[valortotalquantidade]</span></div></li>";
+                    }
+                    else{
+                        $numerocasas2 = $row['valortotalquantidade'];
+                        $numerocasasdecimais2 = number_format($numerocasas2, 2, '.', '');
+                        echo "<li>$row[ititulo] - $row[pquantidade] itens<div style='margin-top: 10px' class='detail'>$row[idescricao]<span class='price'>R$ $numerocasasdecimais2 ( R$ $row[pvalor] unid.)</span></div></li>";
+                    }
+                } else if ($row['pstatus'] == 3) {
+                    if($row['pquantidade'] <= 1){
+                        echo "<li>$row[ititulo] - $row[pquantidade] item<div style='margin-top: 10px' class='detail'>$row[idescricao]<span class='price'>R$ $row[valortotalquantidade]</span></div></li>";
+                    }
+                    else{
+                        $numerocasas2 = $row['valortotalquantidade'];
+                        $numerocasasdecimais2 = number_format($numerocasas2, 2, '.', '');
+                        echo "<li>$row[ititulo] - $row[pquantidade] itens<div style='margin-top: 10px' class='detail'>$row[idescricao]<span class='price'>R$ $numerocasasdecimais2 ( R$ $row[pvalor] unid.)</span></div></li>";
+                    }
+                } else if ($row['pstatus'] == 4) {
+                    if($row['pquantidade'] <= 1){
+                        echo "<li>$row[ititulo] - $row[pquantidade] item<div style='margin-top: 10px' class='detail'>$row[idescricao]<span class='price'>R$ $row[valortotalquantidade]</span></div></li>";
+                    }
+                    else{
+                        $numerocasas2 = $row['valortotalquantidade'];
+                        $numerocasasdecimais2 = number_format($numerocasas2, 2, '.', '');
+                        echo "<li>$row[ititulo] - $row[pquantidade] itens<div style='margin-top: 10px' class='detail'>$row[idescricao]<span class='price'>R$ $numerocasasdecimais2 ( R$ $row[pvalor] unid.)</span></div></li>";
+                    }
                 }
                 echo "</form>";
             }

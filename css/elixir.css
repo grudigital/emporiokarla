@@ -1250,6 +1250,7 @@ section.menu span{
 	font-style: italic;
 	font-size: 16px;
 	color: #c02530;
+	margin-top: 10px;
 	float: right;
 	text-align: left;
 	line-height: 16px;
@@ -2862,6 +2863,7 @@ a.button.contact, .button.contact {
 @media only screen and (min-width : 992px) and (max-width : 1200px) {
 	section.menu span{
 		font-size: 13px;
+		margin-top: 10px;
 	}
 	section.menu ul li .detail {
 		font-size: 11px;

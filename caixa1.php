@@ -64,24 +64,36 @@
 
 
 
-                $sqlitenspedidosoma = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, sum(p.valor) as valortotalpedido, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = $row[pedido] group by p.pedido";
+                $sqlitenspedidosoma = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, p.quantidade, sum(p.valor * p.quantidade) as valortotalpedido, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = $row[pedido] group by p.pedido";
                 $resultitenspedidosoma = mysqli_query($conn, $sqlitenspedidosoma);
 
                 while ($rowitenspedidosoma = mysqli_fetch_assoc($resultitenspedidosoma)) {
 
-                    echo "<li style='text-align: center'>Pedido $row[pedido] - R$ $rowitenspedidosoma[valortotalpedido]";
+                    $numerocasas = $rowitenspedidosoma['valortotalpedido'];
+                    $numerocasasdecimais = number_format($numerocasas, 2, '.', '');
+                    echo "<li style='text-align: center'>Pedido $row[pedido] - R$ $numerocasasdecimais";
+                    echo "<br/></li>";
                 }
 
 
-                $sqlitenspedido = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = $row[pedido]";
+                $sqlitenspedido = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.quantidade pquantidade, (p.quantidade * p.valor) as valortotalitem, p.valor pvalor, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = $row[pedido]";
                 $resultitenspedido = mysqli_query($conn, $sqlitenspedido);
 
 
-                while ($rowitenspedido = mysqli_fetch_assoc($resultitenspedido)) {
-
-                    echo "<div class='detail'>$rowitenspedido[ititulo] - ";
-                    echo "R$ $rowitenspedido[pvalor] </div>";
-
+                while ($rowitenspedido = mysqli_fetch_assoc($resultitenspedido))
+                {
+                    if($rowitenspedido['pquantidade'] <= 1){
+                        echo "<div class='detail'>$rowitenspedido[ititulo] ( $rowitenspedido[pquantidade] item ) - ";
+                    }else{
+                        echo "<div class='detail'>$rowitenspedido[ititulo] ( $rowitenspedido[pquantidade] itens ) - ";
+                    }
+                    if($rowitenspedido['pquantidade'] <= 1){
+                        echo "<strong>R$ $rowitenspedido[pvalor]</strong><br/><br/> </div>";
+                    }else{
+                        $numerocasas3 = $rowitenspedido['valortotalitem'];
+                        $numerocasasdecimais3 = number_format($numerocasas3, 2, '.', '');
+                        echo "<strong>R$ $numerocasasdecimais3</strong> ( R$ $rowitenspedido[pvalor] por unid. )<br/><br/> </div>";
+                    }
                 }
 
 
@@ -134,7 +146,7 @@
 
             while ($row = mysqli_fetch_assoc($result)) {
 
-                $sqlitenspedidosoma = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, sum(p.valor) as valortotalpedido, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = $row[pedido] group by p.pedido";
+                $sqlitenspedidosoma = "select p.id pid, p.pedido ppedido, p.loja ploja, p.quantidade pquantidade, p.item pitem, p.valor pvalor, sum(p.valor) as valortotalpedido, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = $row[pedido] group by p.pedido";
                 $resultitenspedidosoma = mysqli_query($conn, $sqlitenspedidosoma);
 
                 while ($rowitenspedidosoma = mysqli_fetch_assoc($resultitenspedidosoma)) {
@@ -143,13 +155,13 @@
                 }
 
 
-                $sqlitenspedido = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.valor pvalor, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = $row[pedido]";
+                $sqlitenspedido = "select p.id pid, p.pedido ppedido, p.loja ploja, p.item pitem, p.quantidade pquantidade, p.valor pvalor, p.status pstatus, i.id iid, i.titulo ititulo from pedidos as p inner join itens as i on p.item = i.id where p.pedido = $row[pedido]";
                 $resultitenspedido = mysqli_query($conn, $sqlitenspedido);
 
 
                 while ($rowitenspedido = mysqli_fetch_assoc($resultitenspedido)) {
 
-                    echo "<div class='detail'>$rowitenspedido[ititulo] ";
+                    echo "<div class='detail'>$rowitenspedido[ititulo] - $rowitenspedido[pquantidade] unid (s) ";
                     echo "</div>";
 
                 }
