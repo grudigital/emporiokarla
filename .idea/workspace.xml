@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef92b0fb-ce91-45eb-ae49-dc45394bf000" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/images/fundoamadeirado.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    <list default="true" id="ef92b0fb-ce91-45eb-ae49-dc45394bf000" name="Default Changelist" comment="@felipesergio projeto base">
+      <change afterPath="$PROJECT_DIR$/emporiokarla-29-11-13h20.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +51,7 @@
       <workItem from="1606474232507" duration="630000" />
       <workItem from="1606483860346" duration="7256000" />
       <workItem from="1606498588945" duration="5708000" />
-      <workItem from="1606662228686" duration="3466000" />
+      <workItem from="1606662228686" duration="4171000" />
     </task>
     <task id="LOCAL-00001" summary="@felipesergio projeto base">
       <created>1606262492188</created>
@@ -111,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606506997458</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="@felipesergio projeto base">
+      <created>1606666856791</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1606666856791</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,20 +128,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="@felipesergio projeto base" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1606506996559">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1606666854595">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="-1058" y="0" key="CommitChangelistDialog2/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1606350964861" />
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1606506996559" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1606666854595" />
     <state x="517" y="287" key="NewPhpFileDialog" timestamp="1606262783256">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1606262783256" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1606507014362">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1606666862103">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="-1091" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1606350992727" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1606507014362" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1606666862103" />
     <state x="534" y="94" width="585" height="592" key="find.popup" timestamp="1606333223393">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
