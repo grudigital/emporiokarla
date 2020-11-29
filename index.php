@@ -88,7 +88,7 @@
     }
 </script>
 
-<body>
+<body style="background-color:#F1D400 !important">
 <div id="mask">
     <div class="loader">
         <img src="svg-loaders/tail-spin.svg" alt='loading'>
@@ -135,7 +135,7 @@
 
 
 <!-- BEGIN MENU SECTION -->
-<section id="menu" class="section menu">
+<section id="menu" style="background-image: url('images/fundoamadeirado.jpg')" class="section menu">
 
     <div class="container">
         <div class="jt_row jt_row-fluid row">
@@ -297,7 +297,7 @@
         document.addEventListener('DOMContentLoaded', controls.ready);
     })();
 </script>
-</body><script>
+<script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
