@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <?php include 'includes/head.php'; ?>
 
 <style>
@@ -126,8 +126,11 @@
             </div>
         </div>
         <div class="slide-sep"></div>
-        <p>Faça seu pedido selecionando abaixo:</p>
+        <p>Faça seu pedido selecionando abaixo2:</p>
+        <img style="width:15%" src="images/setaanimada.gif">
     </div>
+
+
 
 
 </section>
@@ -141,16 +144,18 @@
         <div class="jt_row jt_row-fluid row">
 
             <?php
+            header("Content-type: text/html; charset=utf-8");
             require("admin/connections/conn.php");
+
             $pegaid = (int)$_GET['id'];
-            $sql = "select * from categorias";
+            $sql = "select * from categorias order by ordem asc";
             $result = mysqli_query($conn, $sql);
 
 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<div class='col-md-12 jt_col column_container'>";
                 echo "<div class='voffset100'></div>";
-                echo "<div class='title first'>$row[categoria]</div>";
+                echo "<div style='font-weight: bold' class='title first'>$row[categoria]</div>";
                 echo "<div class='voffset10'></div>";
                 echo "<img style='margin-top: 50px' class='center' src='admin/uploads/categorias/$row[imagem]' alt='$row[categoria]'>";
                 echo "</div>";
@@ -164,7 +169,7 @@
                 $resultpegaloja = mysqli_query($conn, $sqlpegaloja);
 
                 while ($rowpegaloja = mysqli_fetch_assoc($resultpegaloja)) {
-                    $sql3 = "select * from itens where loja$rowpegaloja[loja] = 1 and categoria = $row[id]";
+                    $sql3 = "select * from itens where loja$rowpegaloja[loja] = 1 and categoria = $row[id] order by ordem asc";
                     $result3 = mysqli_query($conn, $sql3);
 
                     while ($row3 = mysqli_fetch_assoc($result3)) {
@@ -181,12 +186,6 @@
                         echo "<div class='quantity'><button style='font-size: 14px; margin-left: 20px; height: 42px; width: 100px; border: none; color:#fff; background-color: #7C4414'>Adicionar</button></div>";
                         echo "</div>";
                         echo "</div>";
-
-
-
-
-
-
                         echo "</li>";
                         echo "</form>";
                     }

@@ -54,6 +54,21 @@ if ($_SESSION['usuarioNome'] == '') {
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div style="z-index: 9999; margin-bottom: 30px" class="col-12 pl-md-0 pl-12">
+                                        <form method="POST" action="pesquisaprodutos.php">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control search border-right-0" id="search" name="pesquisar"
+                                                       placeholder="Busque por produto...">
+                                                <div class="input-group-append">
+                                                    <button style="width: 40px" type="submit" class="input-group-text bg-transparent">
+                                                        <img src="../images/search.svg" class="img-fluid" width="15"/>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
                                     <?php include 'includes/produtos-lista.php' ?>
                                 </div>
                             </div>

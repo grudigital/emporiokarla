@@ -1,7 +1,7 @@
 <?php
 require ("../connections/conn.php");
 
-$sql="INSERT INTO categorias (categoria) VALUES ('$_POST[categoria]')";
+$sql="INSERT INTO categorias (categoria,ordem) VALUES ('$_POST[categoria]','$_POST[ordem]')";
 if (!mysqli_query($conn,$sql))
 {
     die('Error: ' . mysqli_error($conn));

@@ -14,14 +14,17 @@
             <ul class="nav navbar-nav navigation">
 
                 <?php
+				error_reporting(0);
+
                 require("admin/connections/conn.php");
                 $pegaid = (int)$_GET['id'];
+				
                 $sql = "select * from pedidos where pedido = '$pegaid' group by pedido";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<li class='page-scroll menu-item'><a href='index.php?id=$row[pedido]'>Cardápio</a></li>";
-                    echo "<li class='page-scroll menu-item'><a href='sugestoes.php?id=$row[pedido]'>Sugestões</a></li>";
-                    echo "<li class='page-scroll menu-item'><a href='meus-pedidos.php?id=$row[pedido]'>Meus pedidos</a></li>";
+                    echo "<li class='page-scroll menu-item'><a href='index.php?id=$pegaid'>Cardápio</a></li>";
+                    echo "<li class='page-scroll menu-item'><a href='sugestoes.php?id=$pegaid'>Sugestões</a></li>";
+                    echo "<li class='page-scroll menu-item'><a href='meus-pedidos.php?id=$pegaid'>Meus pedidos</a></li>";
                 }
                 mysqli_close($conn);
                 ?>

@@ -58,6 +58,14 @@ if ($_SESSION['usuarioNome'] == '') {
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Ordem</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="ordem" type="number" placeholder="Ordem"
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+
 
 
 
